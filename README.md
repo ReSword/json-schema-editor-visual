@@ -26,6 +26,8 @@ render(
 | name | desc | default |
 | ---- | ----------- | --------- |
 | `lang` | language, support `en_US` or `zh_CN` | en_US 
+| `schemaType` | schemaType, support `string[]` | ['string', 'number', 'array', 'object', 'boolean', 'integer'] 
+
 
 ## SchemaEditor Props
 
