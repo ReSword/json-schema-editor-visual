@@ -30,7 +30,7 @@ import './schemaJson.css';
 import _ from 'underscore';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { JSONPATH_JOIN_CHAR, SCHEMA_TYPE } from '../../utils.js';
+import { JSONPATH_JOIN_CHAR } from '../../utils.js';
 const InputGroup = Input.Group;
 import LocaleProvider from '../LocalProvider/index.js';
 import utils from '../../utils';
@@ -55,6 +55,7 @@ class SchemaArray extends PureComponent {
     super(props);
     this._tagPaddingLeftStyle = {};
     this.Model = context.Model.schema;
+    this.schemaType = context.Model.__jsonSchemaType;
   }
 
   componentWillMount() {
@@ -163,7 +164,7 @@ class SchemaArray extends PureComponent {
                 onChange={this.handleChangeType}
                 value={items.type}
               >
-                {SCHEMA_TYPE.map((item, index) => {
+                {this.schemaType.map((item, index) => {
                   return (
                     <Option value={item} key={index}>
                       {item}
@@ -174,7 +175,7 @@ class SchemaArray extends PureComponent {
             </Col>
             {this.context.isMock && (
               <Col span={3} className="col-item col-item-mock">
-                
+
                 <MockSelect
                   schema={items}
                   showEdit={() => this.handleShowEdit('mock', items.type)}
@@ -233,6 +234,7 @@ class SchemaItem extends PureComponent {
     this._tagPaddingLeftStyle = {};
     // this.num = 0
     this.Model = context.Model.schema;
+    this.schemaType = context.Model.__jsonSchemaType;
   }
 
   componentWillMount() {
@@ -390,7 +392,7 @@ class SchemaItem extends PureComponent {
               onChange={this.handleChangeType}
               value={value.type}
             >
-              {SCHEMA_TYPE.map((item, index) => {
+              {this.schemaType.map((item, index) => {
                 return (
                   <Option value={item} key={index}>
                     {item}
@@ -438,7 +440,7 @@ class SchemaItem extends PureComponent {
             />
           </Col>
 
-          
+
           <Col span={this.context.isMock ? 2: 3}  className="col-item col-item-setting">
             <span className="adv-set" onClick={this.handleShowAdv}>
               <Tooltip placement="top" title={LocaleProvider('adv_setting')}>

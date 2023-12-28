@@ -31,7 +31,7 @@ import _ from 'underscore';
 import { connect } from 'react-redux';
 import SchemaJson from './components/SchemaComponents/SchemaJson.js';
 import PropTypes from 'prop-types';
-import { SCHEMA_TYPE, debounce } from './utils.js';
+import { debounce } from './utils.js';
 import handleSchema from './schema';
 const GenerateSchema = require('generate-schema/src/schemas/json.js');
 const utils = require('./utils');
@@ -59,6 +59,7 @@ class jsonSchema extends React.Component {
       mock: ''
     };
     this.Model = this.props.Model.schema;
+    this.schemaType = this.props.Model.__jsonSchemaType;
     this.jsonSchemaData = null;
     this.jsonData = null;
   }
@@ -414,7 +415,7 @@ class jsonSchema extends React.Component {
                   onChange={e => this.changeType(`type`, e)}
                   value={schema.type || 'object'}
                 >
-                  {SCHEMA_TYPE.map((item, index) => {
+                  {this.schemaType.map((item, index) => {
                     return (
                       <Option value={item} key={index}>
                         {item}
