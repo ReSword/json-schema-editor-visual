@@ -1,9 +1,9 @@
 {
   "name": "@resword/json-schema-editor-visual",
-  "version": "0.0.2",
+  "version": "2.0.0",
   "description": "jsonschema editor",
   "main": "package/index.js",
-  "license": "MIC",
+  "license": "MIT",
   "scripts": {
     "start": "ykit s -p 8082",
     "demo": "set NODE_ENV=production && ykit pack -m",
