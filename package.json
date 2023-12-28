@@ -9,6 +9,10 @@
     "demo": "set NODE_ENV=production && ykit pack -m",
     "build": "set NODE_ENV=production && webpack"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ReSword/json-schema-editor-visual"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "antd": "^4",
